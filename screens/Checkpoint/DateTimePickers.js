@@ -1,5 +1,6 @@
-import { View, Button } from "react-native";
+import { View, Button, StyleSheet } from "react-native";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
+import CustomButton from "../../shared/CustomButton.js";
 
 
 export function DateTimePicker({date, setDate}) {
@@ -25,8 +26,17 @@ export function DateTimePicker({date, setDate}) {
         showMode('time');
     };
 
-    return <View>
-        <Button onPress={showTimepicker} title="Change time" />
-        <Button onPress={showDatepicker} title="Change date" />
+    return <View style={styles.view}>
+        <CustomButton title="Change time" onPress={showTimepicker} width="48%"/>
+        <CustomButton title="Change date" onPress={showDatepicker} width="48%"/>
     </View>
 }
+
+const styles = StyleSheet.create({
+    view: {
+        marginBottom: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignContent: 'stretch'
+    }
+})
