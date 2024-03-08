@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import { Checkpoint } from './screens/Checkpoint/Checkpoint.js';
+import { Checkpoint } from './screens/Checkpoint/checkpoint.screen';
 
 export default function App() {
 

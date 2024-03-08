@@ -1,6 +1,6 @@
-import { View, Button, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
-import CustomButton from "../../shared/CustomButton.js";
+import CustomButton from "../../shared/customButton.component";
 
 
 export function DateTimePicker({date, setDate}) {
