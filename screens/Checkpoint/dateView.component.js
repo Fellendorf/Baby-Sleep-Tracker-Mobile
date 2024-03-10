@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     date: {
-        fontFamily: 'BebasNeue-Regular'
+        fontFamily: 'BebasNeue-Regular',
+        color: '#161616'
     },
     time: {
         fontSize: 150
