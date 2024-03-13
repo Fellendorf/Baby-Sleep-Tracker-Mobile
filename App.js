@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 import { useFonts } from 'expo-font';
 import { Checkpoint } from './screens/Checkpoint/checkpoint.screen';
 
@@ -12,6 +12,7 @@ export default function App() {
   }
 
   return <View style={styles.container}>
+    <StatusBar style="auto" />
     <Checkpoint />
   </View>
 }

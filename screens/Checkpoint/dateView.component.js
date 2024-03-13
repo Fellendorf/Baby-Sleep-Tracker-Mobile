@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import Utils from "../../shared/utils";
 
 
-export default function DateView({ date }) {
+export default function DateView({ date, textColor }) {
     const dateString = date.toLocaleString();
     // 01.02.2003, 01:23:45 -> 01:23
     const time = Utils.extractByRegex(dateString, /, (.*):/);
@@ -11,8 +11,8 @@ export default function DateView({ date }) {
 
 
     return <View style={styles.container}>
-        <Text style={[styles.date, styles.time]}>{time}</Text>
-        <Text style={[styles.date, styles.dayMonthYear]}>{dayMonthYear}</Text>
+        <Text style={[styles.date, styles.time, {color: textColor} ]}>{time}</Text>
+        <Text style={[styles.date, styles.dayMonthYear, {color: textColor}]}>{dayMonthYear}</Text>
     </View>
 }
 
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     },
     date: {
         fontFamily: 'BebasNeue-Regular',
-        color: '#161616'
     },
     time: {
         fontSize: 150
