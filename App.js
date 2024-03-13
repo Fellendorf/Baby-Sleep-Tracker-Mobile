@@ -1,6 +1,6 @@
 import { StyleSheet, View, StatusBar } from 'react-native';
 import { useFonts } from 'expo-font';
-import { Checkpoint } from './screens/Checkpoint/checkpoint.screen';
+import { Checkpoint } from './screens/checkpoint/checkpoint.screen';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
