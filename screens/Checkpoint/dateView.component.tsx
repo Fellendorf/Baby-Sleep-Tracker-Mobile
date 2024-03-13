@@ -1,8 +1,13 @@
 import { View, Text, StyleSheet } from "react-native";
 import Utils from "../../shared/utils";
 
+type Props = {
+    date: Date,
+    textColor: string
+}
 
-export default function DateView({ date, textColor }) {
+
+export default function DateView({ date, textColor }: Props) {
     const dateString = date.toLocaleString();
     // 01.02.2003, 01:23:45 -> 01:23
     const time = Utils.extractByRegex(dateString, /, (.*):/);

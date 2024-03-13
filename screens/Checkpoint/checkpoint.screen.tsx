@@ -13,7 +13,7 @@ export function Checkpoint() {
 
     const submit = () => { console.log('TEMP') }
 
-    return <LinearGradient colors={gradients[type]} style={styles.gradient} end={[1, 1.2]}>
+    return <LinearGradient colors={gradients[type as keyof typeof gradients]} style={styles.gradient} end={[1, 1.2]}>
         <View style={styles.container}>
             {
                 type === 'F' ?

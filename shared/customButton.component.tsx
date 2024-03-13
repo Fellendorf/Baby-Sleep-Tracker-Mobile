@@ -1,7 +1,14 @@
-import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
+import { DimensionValue, StyleSheet, Text, TouchableHighlight, View } from "react-native";
+
+type Props = {
+    title: string,
+    onPress: () => void,
+    width?: DimensionValue,
+    color?: string
+}
 
 
-export default function CustomButton({ title, onPress, width, color }) {
+export default function CustomButton({ title, onPress, width, color }: Props) {
     return <TouchableHighlight onPress={onPress} style={[styles.buttonRadius, {width}]}>
         <View style={[styles.button, styles.buttonRadius, {backgroundColor: color || '#2c3750'}]}>
             <Text style={styles.text}>{title}</Text>

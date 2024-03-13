@@ -1,14 +1,23 @@
+import React from 'react';
 import { View, StyleSheet } from "react-native";
-import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
+import { DateTimePickerAndroid, DateTimePickerEvent } from "@react-native-community/datetimepicker";
 import CustomButton from "../../shared/customButton.component";
 
+type Props = {
+    date: Date,
+    setDate: React.Dispatch<React.SetStateAction<Date>>
+}
+type Mode = 'date' | 'time';
 
-export function DateTimePicker({date, setDate}) {
-    const onChange = (event, selectedDate) => {
-        setDate(selectedDate);
+export function DateTimePicker({date, setDate}: Props) {
+    const onChange = (_event: DateTimePickerEvent, selectedDate: Date | undefined) => {
+        if (selectedDate instanceof Date) {
+            setDate(selectedDate);
+        }
+        throw new Error('Selected Date is undefined');
     };
 
-    const showMode = (currentMode) => {
+    const showMode = (currentMode: Mode) => {
         DateTimePickerAndroid.open({
             value: date,
             onChange,
