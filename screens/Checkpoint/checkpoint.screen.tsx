@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { DateTimePicker } from "./dateTimePickers.component";
 import CustomButton from "../../shared/customButton.component";
 import DateView from "./dateView.component";
+import { colors } from "../../constants";
 
+const imagePath = '../../assets/images/checkpoint.background.dark.png';
 
 export function Checkpoint() {
     const [date, setDate] = useState(new Date());
@@ -13,44 +14,43 @@ export function Checkpoint() {
 
     const submit = () => { console.log('TEMP') }
 
-    return <LinearGradient colors={gradients[type as keyof typeof gradients]} style={styles.gradient} end={[1, 1.2]}>
-        <View style={styles.container}>
+
+    return <View style={styles.container}>
+            <Image source={require(imagePath)} style={styles.image}/>
             {
                 type === 'F' ?
-                    <Text style={[styles.type, styles.typeDark]}>Fell asleep at</Text> :
-                    <Text style={[styles.type, styles.typeLight]}>Woke up at</Text>
+                    <Text style={styles.type}>Fell asleep at</Text> :
+                    <Text style={styles.type}>Woke up at</Text>
             }
-            <DateView date={date} textColor={type === 'F' ? styles.typeDark.color : styles.typeLight.color}/>
-            <DateTimePicker date={date} setDate={setDate} />
-            <CustomButton title="Submit" color='#576ea1' onPress={submit} />
+            <View style={styles.subContainer}>
+                <DateView date={date} textColor={styles.type.color} />
+                <DateTimePicker date={date} setDate={setDate} />
+                <View style={{paddingTop: 10}}>
+                    <CustomButton title="Submit" color={colors.button.blue} onPress={submit} />
+                </View>
+            </View>
         </View>
-    </LinearGradient >
-
 }
 
 const styles = StyleSheet.create({
-    gradient: {
-        flex: 1,
-    },
     container: {
         flex: 1,
-        padding: 20,
+        backgroundColor: colors.background.dark
+    },
+    subContainer: {
+        flex: 1,
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingBottom: 20
+    },
+    image: {
+        width: '100%'
     },
     type: {
-        fontSize: 40,
+        fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',
-        textTransform: 'uppercase'
+        textTransform: 'uppercase',
+        color: colors.text.light
     },
-    typeDark: {
-        color: '#b2b4d3'
-    },
-    typeLight: {
-        color: '#e6e6e6'
-    }
 })
-
-const gradients = {
-    F: ['#111c3f', '#ffffff'],
-    W: ['#61a3da', '#ffffff']
-}

@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from "react-native";
 import { DateTimePickerAndroid, DateTimePickerEvent } from "@react-native-community/datetimepicker";
 import CustomButton from "../../shared/customButton.component";
+import { colors } from "../../constants";
 
 type Props = {
     date: Date,
@@ -36,8 +37,8 @@ export function DateTimePicker({date, setDate}: Props) {
     };
 
     return <View style={styles.view}>
-        <CustomButton title="Change time" onPress={showTimepicker} width="48%"/>
-        <CustomButton title="Change date" onPress={showDatepicker} width="48%"/>
+        <CustomButton title="Change time" onPress={showTimepicker} width="48%" color={colors.button.turquoise}/>
+        <CustomButton title="Change date" onPress={showDatepicker} width="48%" color={colors.button.turquoise}/>
     </View>
 }
 
