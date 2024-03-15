@@ -37,8 +37,18 @@ export function DateTimePicker({date, setDate}: Props) {
     };
 
     return <View style={styles.view}>
-        <CustomButton title="Change time" onPress={showTimepicker} width="48%" color={colors.button.turquoise}/>
-        <CustomButton title="Change date" onPress={showDatepicker} width="48%" color={colors.button.turquoise}/>
+        <CustomButton 
+            title="Change time" 
+            onPress={showTimepicker} 
+            buttonStyle={{...styles.button, ...styles.buttonLeft}}
+            gradientColors={[colors.button.turquoise,colors.button.darkTurquoise]}
+        />
+        <CustomButton 
+            title="Change date" 
+            onPress={showDatepicker} 
+            buttonStyle={styles.button} 
+            gradientColors={[colors.button.turquoise,colors.button.darkTurquoise]}    
+        />
     </View>
 }
 
@@ -48,5 +58,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignContent: 'stretch'
+    },
+    button: {
+        backgroundColor: 'yellow',
+        width: '49%',
+        height: 50,
+        // borderRadius: 25
+    },
+    buttonLeft: {
+        borderTopRightRadius: 5
     }
 })

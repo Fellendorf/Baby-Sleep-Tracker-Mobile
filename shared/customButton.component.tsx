@@ -1,28 +1,46 @@
-import { DimensionValue, StyleSheet, Text, TouchableHighlight, View } from "react-native";
+import { DimensionValue, StyleSheet, Text, TouchableHighlight, View, ViewStyle } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 type Props = {
     title: string,
     onPress: () => void,
-    width?: DimensionValue,
-    color?: string
+    color?: string,
+    buttonStyle?: Pick<ViewStyle, 'width' | 'backgroundColor' | 'borderRadius'>,
+    gradientColors?: string[]
 }
 // TODO: add gradient
 // TODO: add ability to provide custom styles using props
-export default function CustomButton({ title, onPress, width, color }: Props) {
-    return <TouchableHighlight onPress={onPress} style={[styles.buttonRadius, {width}]}>
-        <View style={[styles.button, styles.buttonRadius, {backgroundColor: color || '#2c3750'}]}>
-            <Text style={styles.text}>{title}</Text>
-        </View>
-    </TouchableHighlight>
+export default function CustomButton({ title, onPress, buttonStyle, gradientColors }: Props) {
+    const colors = gradientColors && gradientColors.length > 1
+        ? gradientColors
+        : Array(2).fill(buttonStyle?.backgroundColor || styles.buttonBase.backgroundColor)
+    const borderRadius = buttonStyle?.borderRadius || 0; 
+
+    return <View style={[styles.buttonBase, buttonStyle]}>
+        <TouchableHighlight onPress={onPress} style={{
+                width: '100%',
+                justifyContent: 'center',
+                borderRadius
+            }}
+        >
+            <LinearGradient
+                colors={colors}
+                style={{
+                    height: '100%', 
+                    justifyContent: 'center',
+                    borderRadius
+                }}
+            >
+                <Text style={styles.text}>{title}</Text>
+            </LinearGradient>
+        </TouchableHighlight>
+    </View>
 }
 
 const styles = StyleSheet.create({
-    buttonRadius: {
-        borderRadius: 30,
-    },
-    button: {
-        paddingVertical: 15,
-        paddingHorizontal: 15,
+    buttonBase: {
+        backgroundColor: 'gray',
+        height: 50,
     },
     text: {
         color: 'white',

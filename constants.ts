@@ -7,6 +7,7 @@ export const colors = {
     },
     button: {
         blue: '#12d0f4',
-        turquoise: '#03dce1'
+        turquoise: '#03dce1',
+        darkTurquoise: '#00818A'
     }
 }
