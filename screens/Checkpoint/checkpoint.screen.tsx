@@ -26,7 +26,12 @@ export function Checkpoint() {
                 <DateView date={date} textColor={styles.type.color} />
                 <DateTimePicker date={date} setDate={setDate} />
                 <View style={{paddingTop: 10}}>
-                    <CustomButton title="Submit" color={colors.button.blue} onPress={submit} />
+                    <CustomButton 
+                        title="Submit" 
+                        gradientColors={[colors.button.blue, colors.button.darkBlue]} 
+                        onPress={submit} 
+                        buttonStyle={styles.button}
+                    />
                 </View>
             </View>
         </View>
@@ -53,4 +58,8 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         color: colors.text.light
     },
+    button: {
+        height: 60,
+        borderRadius: 25
+    }
 })

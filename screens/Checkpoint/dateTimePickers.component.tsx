@@ -41,13 +41,13 @@ export function DateTimePicker({date, setDate}: Props) {
             title="Change time" 
             onPress={showTimepicker} 
             buttonStyle={{...styles.button, ...styles.buttonLeft}}
-            gradientColors={[colors.button.turquoise,colors.button.darkTurquoise]}
+            gradientColors={[colors.button.turquoise, colors.button.darkTurquoise]}
         />
         <CustomButton 
             title="Change date" 
             onPress={showDatepicker} 
-            buttonStyle={styles.button} 
-            gradientColors={[colors.button.turquoise,colors.button.darkTurquoise]}    
+            buttonStyle={{...styles.button, ...styles.buttonRight}} 
+            gradientColors={[colors.button.turquoise, colors.button.darkTurquoise]}    
         />
     </View>
 }
@@ -61,11 +61,15 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: 'yellow',
-        width: '49%',
-        height: 50,
-        // borderRadius: 25
+        width: '49.5%',
+        height: 60,
     },
     buttonLeft: {
-        borderTopRightRadius: 5
+        borderTopLeftRadius: 25,
+        borderBottomLeftRadius: 25
+    },
+    buttonRight: {
+        borderTopRightRadius: 25,
+        borderBottomRightRadius: 25,
     }
 })
