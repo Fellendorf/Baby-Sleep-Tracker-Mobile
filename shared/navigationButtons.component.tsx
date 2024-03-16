@@ -40,15 +40,17 @@ const styles = StyleSheet.create({
         alignContent: 'stretch'
     },
     button: {
-        width: '32.5%',
+        width: '38%',
         height: 40
     },
     buttonLeft: {
         borderTopLeftRadius: 20,
-        borderBottomLeftRadius: 20
+        borderBottomLeftRadius: 20,
+        width: '30%'
     },
     buttonRight: {
         borderTopRightRadius: 20,
-        borderBottomRightRadius: 20
+        borderBottomRightRadius: 20,
+        width: '30%'
     }
 })
