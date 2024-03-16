@@ -9,6 +9,13 @@ export const colors = {
         blue: '#12d0f4',
         darkBlue: '#0E839B',
         turquoise: '#03dce1',
-        darkTurquoise: '#00818A'
+        darkTurquoise: '#00818A',
+        pink: '#fcb99a',
+        darkPink: '#f97c78'
     }
+}
+
+export const screenNames = {
+    checkpoint: 'checkpoint',
+    settings: 'settings'
 }

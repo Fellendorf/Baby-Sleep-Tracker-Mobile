@@ -8,7 +8,7 @@ type Props = {
     gradientColors?: string[]
 }
 
-export default function CustomButton({ title, onPress, buttonStyle, gradientColors }: Props) {
+export function CustomButton({ title, onPress, buttonStyle, gradientColors }: Props) {
     const colors = gradientColors && gradientColors.length > 1
         ? gradientColors
         : Array(2).fill(buttonStyle?.backgroundColor || styles.buttonBase.backgroundColor)

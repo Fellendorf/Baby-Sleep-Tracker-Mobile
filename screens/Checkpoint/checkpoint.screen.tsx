@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { ParamListBase } from "@react-navigation/native";
+
 import { DateTimePicker } from "./dateTimePickers.component";
-import CustomButton from "../../shared/customButton.component";
-import DateView from "./dateView.component";
+import { DateView } from "./dateView.component";
+import { NavigationButtons } from "../../shared/navigationButtons.component";
+import { CustomButton } from "../../shared/customButton.component";
 import { colors } from "../../constants";
 
 const imagePath = '../../assets/images/checkpoint.background.dark.png';
 
-export function Checkpoint() {
+export function Checkpoint({ navigation, route }: NativeStackScreenProps<ParamListBase>) {
     const [date, setDate] = useState(new Date());
     // Fall asleep = F, Wake up = W
     const [type, setType] = useState('F');
@@ -16,25 +20,26 @@ export function Checkpoint() {
 
 
     return <View style={styles.container}>
-            <Image source={require(imagePath)} style={styles.image}/>
-            {
-                type === 'F' ?
-                    <Text style={styles.type}>Fell asleep at</Text> :
-                    <Text style={styles.type}>Woke up at</Text>
-            }
-            <View style={styles.subContainer}>
-                <DateView date={date} textColor={styles.type.color} />
-                <DateTimePicker date={date} setDate={setDate} />
-                <View style={{paddingTop: 10}}>
-                    <CustomButton 
-                        title="Submit" 
-                        gradientColors={[colors.button.blue, colors.button.darkBlue]} 
-                        onPress={submit} 
-                        buttonStyle={styles.button}
-                    />
-                </View>
+        <Image source={require(imagePath)} style={styles.image} />
+        {
+            type === 'F' ?
+                <Text style={styles.type}>Fell asleep at</Text> :
+                <Text style={styles.type}>Woke up at</Text>
+        }
+        <View style={styles.subContainer}>
+            <DateView date={date} textColor={styles.type.color} />
+            <DateTimePicker date={date} setDate={setDate} />
+            <View style={{ paddingTop: 10 }}>
+                <CustomButton
+                    title="Submit"
+                    gradientColors={[colors.button.blue, colors.button.darkBlue]}
+                    onPress={submit}
+                    buttonStyle={styles.button}
+                />
             </View>
         </View>
+        <NavigationButtons navigation={navigation} route={route} />
+    </View>
 }
 
 const styles = StyleSheet.create({

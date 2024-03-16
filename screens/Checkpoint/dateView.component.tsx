@@ -6,8 +6,7 @@ type Props = {
     textColor: string
 }
 
-
-export default function DateView({ date, textColor }: Props) {
+export function DateView({ date, textColor }: Props) {
     const dateString = date.toLocaleString();
     // 01.02.2003, 01:23:45 -> 01:23
     const time = Utils.extractByRegex(dateString, /, (.*):/);
@@ -33,9 +32,9 @@ const styles = StyleSheet.create({
         fontFamily: 'BebasNeue-Regular',
     },
     time: {
-        fontSize: 150
+        fontSize: 130
     },
     dayMonthYear: {
-        fontSize: 75
+        fontSize: 60
     }
 })

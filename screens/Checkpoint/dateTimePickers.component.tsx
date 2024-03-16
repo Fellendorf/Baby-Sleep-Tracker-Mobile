@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from "react-native";
 import { DateTimePickerAndroid, DateTimePickerEvent } from "@react-native-community/datetimepicker";
-import CustomButton from "../../shared/customButton.component";
+
+import { CustomButton } from "../../shared/customButton.component";
 import { colors } from "../../constants";
 
 type Props = {
@@ -60,9 +61,8 @@ const styles = StyleSheet.create({
         alignContent: 'stretch'
     },
     button: {
-        backgroundColor: 'yellow',
         width: '49.5%',
-        height: 60,
+        height: 50,
     },
     buttonLeft: {
         borderTopLeftRadius: 25,
