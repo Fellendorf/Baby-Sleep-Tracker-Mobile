@@ -5,10 +5,11 @@ type Props = {
     title: string,
     onPress: () => void,
     buttonStyle?: ViewStyle,
-    gradientColors?: string[]
+    gradientColors?: string[],
+    fontSize?: number
 }
 
-export function CustomButton({ title, onPress, buttonStyle, gradientColors }: Props) {
+export function CustomButton({ title, onPress, buttonStyle, gradientColors, fontSize = 18 }: Props) {
     const colors = gradientColors && gradientColors.length > 1
         ? gradientColors
         : Array(2).fill(buttonStyle?.backgroundColor || styles.buttonBase.backgroundColor)
@@ -28,19 +29,19 @@ export function CustomButton({ title, onPress, buttonStyle, gradientColors }: Pr
 
     return <View style={[styles.buttonBase, buttonStyle]}>
         <TouchableHighlight onPress={onPress} style={{
-                width: '100%',
-                justifyContent: 'center',
-                borderRadius,
-                borderTopRightRadius,
-                borderTopLeftRadius,
-                borderBottomRightRadius,
-                borderBottomLeftRadius
-            }}
+            width: '100%',
+            justifyContent: 'center',
+            borderRadius,
+            borderTopRightRadius,
+            borderTopLeftRadius,
+            borderBottomRightRadius,
+            borderBottomLeftRadius
+        }}
         >
             <LinearGradient
                 colors={colors}
                 style={{
-                    height: '100%', 
+                    height: '100%',
                     justifyContent: 'center',
                     borderRadius,
                     borderTopRightRadius,
@@ -49,7 +50,7 @@ export function CustomButton({ title, onPress, buttonStyle, gradientColors }: Pr
                     borderBottomLeftRadius
                 }}
             >
-                <Text style={styles.text}>{title}</Text>
+                <Text style={[styles.text, { fontSize }]}>{title}</Text>
             </LinearGradient>
         </TouchableHighlight>
     </View>
@@ -63,7 +64,6 @@ const styles = StyleSheet.create({
     text: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 18,
         textAlign: 'center',
         textTransform: 'uppercase',
         textShadowColor: 'gray',

@@ -12,18 +12,21 @@ export function NavigationButtons({navigation, route}: NativeStackScreenProps<Pa
             onPress={() => navigation.navigate(screenNames.settings)} 
             buttonStyle={{...styles.button, ...styles.buttonLeft}} 
             gradientColors={gradientColors}
+            fontSize={15}
         />
         <CustomButton 
             title={screenNames.checkpoint} 
             onPress={() => navigation.navigate(screenNames.checkpoint)}
             buttonStyle={styles.button} 
             gradientColors={gradientColors}
+            fontSize={15}
         />
         <CustomButton 
             title={screenNames.settings} 
             onPress={() => navigation.navigate(screenNames.settings)}
             buttonStyle={{...styles.button, ...styles.buttonRight}} 
             gradientColors={gradientColors}
+            fontSize={15}
         />
     </View>
 }
@@ -32,25 +35,29 @@ const gradientColors = [colors.button.pink, colors.button.darkPink];
 
 const styles = StyleSheet.create({
     container: {
-        marginBottom: 10,
-        marginLeft: 20,
-        marginRight: 20,
+        marginTop: 10,
+        marginLeft: 5,
+        marginRight: 5,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignContent: 'stretch'
+        alignContent: 'stretch',
+        position: 'absolute',
+        bottom: 5,
     },
     button: {
-        width: '38%',
+        width: '34%',
         height: 40
     },
     buttonLeft: {
-        borderTopLeftRadius: 20,
-        borderBottomLeftRadius: 20,
-        width: '30%'
+        borderTopLeftRadius: 5,
+        borderBottomLeftRadius: 5,
+        marginRight: "1%",
+        width: '32%'
     },
     buttonRight: {
-        borderTopRightRadius: 20,
-        borderBottomRightRadius: 20,
-        width: '30%'
+        borderTopRightRadius: 5,
+        borderBottomRightRadius: 5,
+        marginLeft: "1%",
+        width: '32%'
     }
 })

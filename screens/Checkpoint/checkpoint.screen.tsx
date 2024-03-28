@@ -35,6 +35,7 @@ export function Checkpoint({ navigation, route }: NativeStackScreenProps<ParamLi
                     gradientColors={[colors.button.blue, colors.button.darkBlue]}
                     onPress={submit}
                     buttonStyle={styles.button}
+                    fontSize={24}
                 />
             </View>
         </View>
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingLeft: 20,
         paddingRight: 20,
-        paddingBottom: 20
+        paddingBottom: 80,
     },
     image: {
         width: '100%'
