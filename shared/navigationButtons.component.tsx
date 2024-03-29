@@ -8,8 +8,8 @@ import { colors, screenNames } from "../constants";
 export function NavigationButtons({navigation, route}: NativeStackScreenProps<ParamListBase>) {
     return <View style={styles.container}>
         <CustomButton 
-            title={screenNames.settings} 
-            onPress={() => navigation.navigate(screenNames.settings)} 
+            title={screenNames.events} 
+            onPress={() => navigation.navigate(screenNames.events)} 
             buttonStyle={{...styles.button, ...styles.buttonLeft}} 
             gradientColors={gradientColors}
             fontSize={15}

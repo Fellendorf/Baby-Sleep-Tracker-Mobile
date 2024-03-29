@@ -3,9 +3,10 @@ import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Settings } from './screens/settings/settings.screen';
+import { Events } from './screens/events/events.screen';
 import { Checkpoint } from './screens/checkpoint/checkpoint.screen';
-import { screenNames } from './constants';
+import { Settings } from './screens/settings/settings.screen';
+import { screenNames, colors } from './constants';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,7 +22,11 @@ export default function App() {
   return <View style={styles.container}>
     <StatusBar /*style="auto"*/ />
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen
+          name={screenNames.events}
+          component={Events}
+        />
         <Stack.Screen
           name={screenNames.checkpoint}
           component={Checkpoint}
@@ -38,5 +43,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.background.dark
   }
 });

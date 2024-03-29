@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { Dispatch, SetStateAction, useState } from "react";
+import { View, Text, StyleSheet, Image, Alert } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ParamListBase } from "@react-navigation/native";
 
@@ -8,15 +8,16 @@ import { DateView } from "./dateView.component";
 import { NavigationButtons } from "../../shared/navigationButtons.component";
 import { CustomButton } from "../../shared/customButton.component";
 import { colors } from "../../constants";
+import { EventType, Store } from "../../services/store";
 
 const imagePath = '../../assets/images/checkpoint.background.dark.png';
 
 export function Checkpoint({ navigation, route }: NativeStackScreenProps<ParamListBase>) {
     const [date, setDate] = useState(new Date());
     // Fall asleep = F, Wake up = W
-    const [type, setType] = useState('F');
+    const [type, setType]: [EventType, Dispatch<SetStateAction<EventType>>] = useState('F' as EventType);
 
-    const submit = () => { console.log('TEMP') }
+    const submit = () => { Store.storeEvent({date: date.getTime(), type}, Alert.alert) }
 
 
     return <View style={styles.container}>

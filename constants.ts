@@ -17,5 +17,6 @@ export const colors = {
 
 export const screenNames = {
     checkpoint: 'checkpoint',
-    settings: 'settings'
+    settings: 'settings',
+    events: 'events'
 }
